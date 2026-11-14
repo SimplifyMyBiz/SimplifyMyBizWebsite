@@ -1,0 +1,10 @@
+<section class="section" {{ with .id }}id="{{ . }}"{{ end }}>
+  <div class="wrap">
+    <div class="section-head">{{ partial "section-head.html" . }}</div>
+    <ol class="steps">
+      {{ range .items }}
+      <li class="step"><h3>{{ .title }}</h3><p>{{ .text }}</p></li>
+      {{ end }}
+    </ol>
+  </div>
+</section>
