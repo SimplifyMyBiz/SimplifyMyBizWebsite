@@ -1,0 +1,14 @@
+<section class="section" {{ with .id }}id="{{ . }}"{{ end }}>
+  <div class="wrap">
+    <div class="section-head">{{ partial "section-head.html" . }}</div>
+    <div class="grid">
+      {{ range .items }}
+      <article class="card">
+        <div class="card-icon">{{ partial "icon.html" .icon }}</div>
+        <h3>{{ .title }}</h3>
+        <p>{{ .text }}</p>
+      </article>
+      {{ end }}
+    </div>
+  </div>
+</section>

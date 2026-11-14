@@ -1,0 +1,12 @@
+<section class="hero">
+  <div class="wrap hero-inner">
+    {{ with .eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h1>{{ .heading }}</h1>
+    {{ with .text }}<p class="lead">{{ . }}</p>{{ end }}
+    <div class="actions">
+      {{ with .cta }}<a class="btn" href="{{ .href }}">{{ .label }}</a>{{ end }}
+      {{ with .secondary }}<a class="btn btn-ghost" href="{{ .href }}">{{ .label }}</a>{{ end }}
+    </div>
+    {{ with .points }}<ul class="points">{{ range . }}<li>{{ partial "icon.html" "check" }}{{ . }}</li>{{ end }}</ul>{{ end }}
+  </div>
+</section>

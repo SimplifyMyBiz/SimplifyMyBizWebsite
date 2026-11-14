@@ -1,0 +1,13 @@
+<footer class="site-footer">
+  <div class="wrap foot">
+    <div>
+      <a class="logo" href="{{ "/" | relURL }}">{{ partial "logo.html" . }}</a>
+      <p class="muted">{{ site.Params.tagline }}</p>
+    </div>
+    <div class="foot-links">
+      {{ with site.Params.email }}<a href="mailto:{{ . }}">{{ . }}</a>{{ end }}
+      {{ with site.Params.phone }}<a href="tel:{{ replaceRE `[^0-9+]` "" . }}">{{ . }}</a>{{ end }}
+    </div>
+  </div>
+  <div class="wrap fine muted">© {{ now.Year }} {{ site.Title }} · Static site on Google Cloud. No database, no login, nothing to hack.</div>
+</footer>

@@ -1,0 +1,21 @@
+{{ $p := site.Params }}
+<section class="cta" {{ with .id }}id="{{ . }}"{{ end }}>
+  <div class="wrap narrow center">
+    <h2>{{ .heading }}</h2>
+    {{ with .text }}<p class="lead">{{ . }}</p>{{ end }}
+    {{ if $p.formEndpoint }}
+    <form class="contact-form" action="{{ $p.formEndpoint }}" method="post">
+      <label>Name<input name="name" autocomplete="name" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label class="full">Business &amp; what you need<textarea name="message" rows="4" required></textarea></label>
+      <input type="text" name="website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn full" type="submit">Send</button>
+    </form>
+    {{ else }}
+    <div class="actions center">
+      <a class="btn" href="{{ $p.bookingURL | default (printf "mailto:%s?subject=Let's%%20talk" $p.email) }}">{{ if $p.bookingURL }}Book a free call{{ else }}Email {{ $p.email }}{{ end }}</a>
+      {{ with $p.phone }}<a class="btn btn-ghost" href="tel:{{ replaceRE `[^0-9+]` "" . }}">Call {{ . }}</a>{{ end }}
+    </div>
+    {{ end }}
+  </div>
+</section>

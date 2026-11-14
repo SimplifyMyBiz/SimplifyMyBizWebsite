@@ -1,0 +1,11 @@
+{{ define "main" }}
+  {{ range .Params.blocks }}
+    {{ $tpl := printf "blocks/%s.html" .type }}
+    {{ if templates.Exists (printf "_partials/%s" $tpl) }}
+      {{ partial $tpl . }}
+    {{ else }}
+      {{ warnf "Unknown block type %q on homepage" .type }}
+    {{ end }}
+  {{ end }}
+  {{ .Content }}
+{{ end }}
