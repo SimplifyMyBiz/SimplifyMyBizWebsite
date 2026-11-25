@@ -71,16 +71,22 @@ All sites — ours and every customer's — live in the SMB org, in **one shared
 Each site gets its own bucket named **`smb-site-<customer>`** (ours: `smb-site-simplifymybiz`).
 One HTTPS load balancer in that project serves every bucket using host rules (domain → bucket).
 
-### One-time machine setup
+### Google Cloud access
 
-We use a dedicated gcloud configuration so website work never touches other projects:
+We use **gctx**, a small zsh helper (`~/.config/gctx/gctx.zsh`, sourced from `~/.zshrc`) that gives each
+terminal its own Google Cloud profile: a gcloud configuration plus its own Application Default Credentials,
+so `gcloud`, `hugo deploy` and Terraform all act as the same account. The current profile shows on the
+right of the prompt.
 
 ```bash
-gcloud config configurations create smb-sites --no-activate
-gcloud auth login --configuration=smb-sites
-gcloud config set project smb-customers-sites --configuration=smb-sites
-gcloud auth application-default login    # `hugo deploy` uses these credentials
+gctx                 # list profiles, show this terminal's
+gctx use smb         # switch this terminal to SMB
+gctx login smb       # sign in (gcloud + ADC) - pick the SMB-org Google account
 ```
+
+The Makefile pins this repo to the `smb` profile, so `make bucket` / `make deploy` always run as SMB,
+whatever the terminal is switched to. Profiles: `smb` (SimplifyMyBiz org, project `smb-customers-sites`)
+and `smc` (SimplifyMyCloud, unrelated to this repo).
 
 ### Per site
 

@@ -3,12 +3,12 @@
 # All customer sites live in one shared project, one bucket each: smb-site-<customer>.
 # Usage: scripts/setup-bucket.sh <bucket-name> [region]
 # Env:   GCP_PROJECT (default smb-customers-sites)
-#        CLOUDSDK_ACTIVE_CONFIG_NAME (default smb-sites) — gcloud config to use
+#        CLOUDSDK_ACTIVE_CONFIG_NAME (default smb; set by the Makefile) — gcloud config to use
 set -euo pipefail
 BUCKET="${1:?usage: setup-bucket.sh <bucket-name> [region]}"
 REGION="${2:-us-west1}"
 PROJECT="${GCP_PROJECT:-smb-customers-sites}"
-export CLOUDSDK_ACTIVE_CONFIG_NAME="${CLOUDSDK_ACTIVE_CONFIG_NAME:-smb-sites}"
+export CLOUDSDK_ACTIVE_CONFIG_NAME="${CLOUDSDK_ACTIVE_CONFIG_NAME:-smb}"
 [[ "$BUCKET" == smb-site-* ]] || echo "warning: bucket doesn't follow the smb-site-<customer> convention"
 
 echo "Project: $PROJECT  Bucket: gs://$BUCKET  Region: $REGION  gcloud config: $CLOUDSDK_ACTIVE_CONFIG_NAME"
