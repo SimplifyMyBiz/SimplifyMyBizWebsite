@@ -95,7 +95,14 @@ make bucket       # creates smb-site-<customer>, sets index.html/404.html, label
 make deploy
 ```
 
-The bucket is then live at `https://storage.googleapis.com/<bucket>/index.html`.
+The bucket is then live at `https://storage.googleapis.com/<bucket>/index.html`. The build uses that
+address as its base URL (`SITE_URL` in the Makefile) so CSS and links resolve inside the bucket. Once a domain
+points at the load balancer, set `SITE_URL = https://<domain>/`.
+
+**Current (temporary) hosting:** project `aqueous-abbey-515821-c3`, bucket `smb-smb-pubsite-temp`, live at
+https://storage.googleapis.com/smb-smb-pubsite-temp/index.html. The project has a domain-restricted-sharing
+exception (`infra/temp-allow-public-members.yaml`) so the bucket can be public. Both get replaced by the
+Terraform-managed website project.
 
 **Custom domain with HTTPS:** add a backend bucket (Cloud CDN on) + host rule for the domain to the shared
 load balancer, add the domain to its Google-managed certificate, and point the domain's A record at the
