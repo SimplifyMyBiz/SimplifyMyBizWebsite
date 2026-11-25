@@ -3,7 +3,7 @@
 # regardless of what the current terminal is switched to.
 GCP_PROFILE ?= smb
 export CLOUDSDK_ACTIVE_CONFIG_NAME := $(GCP_PROFILE)
-export GOOGLE_APPLICATION_CREDENTIALS := $(HOME)/.config/gctx/adc/$(GCP_PROFILE).json
+export GOOGLE_APPLICATION_CREDENTIALS := $(HOME)/.config/gcp-profiles/adc/$(GCP_PROFILE).json
 
 BUCKET ?= $(shell sed -n 's/^ *URL = "gs:\/\/\(.*\)"/\1/p' hugo.toml | head -1)
 
@@ -16,7 +16,7 @@ build:            ## Production build into ./public
 	hugo --gc --minify
 
 deploy: build     ## Sync ./public to the GCS bucket (only changed files)
-	@test -f "$$GOOGLE_APPLICATION_CREDENTIALS" || { echo "No credentials for profile $(GCP_PROFILE). Run: gctx login $(GCP_PROFILE)"; exit 1; }
+	@test -f "$$GOOGLE_APPLICATION_CREDENTIALS" || { echo "No credentials for profile $(GCP_PROFILE). Run: gcp login $(GCP_PROFILE)"; exit 1; }
 	hugo deploy --target production
 
 bucket:           ## One-time: create + configure the GCS bucket

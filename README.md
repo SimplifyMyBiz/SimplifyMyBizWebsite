@@ -73,15 +73,15 @@ One HTTPS load balancer in that project serves every bucket using host rules (do
 
 ### Google Cloud access
 
-We use **gctx**, a small zsh helper (`~/.config/gctx/gctx.zsh`, sourced from `~/.zshrc`) that gives each
+We use **gcp**, a small zsh helper (`~/.config/gcp-profiles/gcp.zsh`, sourced from `~/.zshrc`) that gives each
 terminal its own Google Cloud profile: a gcloud configuration plus its own Application Default Credentials,
 so `gcloud`, `hugo deploy` and Terraform all act as the same account. The current profile shows on the
 right of the prompt.
 
 ```bash
-gctx                 # list profiles, show this terminal's
-gctx use smb         # switch this terminal to SMB
-gctx login smb       # sign in (gcloud + ADC) - pick the SMB-org Google account
+gcp                 # list profiles, show this terminal's
+gcp use smb         # switch this terminal to SMB
+gcp login smb       # sign in (gcloud + ADC) - pick the SMB-org Google account
 ```
 
 The Makefile pins this repo to the `smb` profile, so `make bucket` / `make deploy` always run as SMB,
