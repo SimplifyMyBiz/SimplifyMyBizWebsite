@@ -55,7 +55,7 @@ otherwise a button to `bookingURL` if set, otherwise a `mailto:` link to `email`
 ## New customer site (the repeatable process)
 
 ```bash
-scripts/new-site.sh ../customer-acme "Acme Plumbing" acme-plumbing-site
+scripts/new-site.sh ../customer-acme "Acme Plumbing" acme   # bucket: smb-site-acme
 cd ../customer-acme
 # 1. hugo.toml: baseURL, email, phone, colors, menu
 # 2. content/_index.md: rewrite the blocks with their pitch
@@ -65,21 +65,35 @@ make bucket       # one-time GCS setup
 make deploy
 ```
 
-## Hosting on Google Cloud Storage
+## Hosting on Google Cloud
 
-One-time per site (needs `gcloud` logged in to the right project):
+All sites — ours and every customer's — live in the SMB org, in **one shared project: `smb-customers-sites`**.
+Each site gets its own bucket named **`smb-site-<customer>`** (ours: `smb-site-simplifymybiz`).
+One HTTPS load balancer in that project serves every bucket using host rules (domain → bucket).
+
+### One-time machine setup
+
+We use a dedicated gcloud configuration so website work never touches other projects:
 
 ```bash
-make bucket       # creates the bucket, sets index.html/404.html, makes it publicly readable
+gcloud config configurations create smb-sites --no-activate
+gcloud auth login --configuration=smb-sites
+gcloud config set project smb-customers-sites --configuration=smb-sites
+gcloud auth application-default login    # `hugo deploy` uses these credentials
+```
+
+### Per site
+
+```bash
+make bucket       # creates smb-site-<customer>, sets index.html/404.html, labels it, makes it public-read
 make deploy
 ```
 
 The bucket is then live at `https://storage.googleapis.com/<bucket>/index.html`.
 
-**Custom domain with HTTPS:** GCS website hosting alone is HTTP-only on a custom domain. For HTTPS, put a
-global external Application Load Balancer in front with a **backend bucket** (Cloud CDN on) and a
-Google-managed certificate, then point the domain's A record at the load balancer IP.
-Multiple customer sites can share one load balancer using host rules.
+**Custom domain with HTTPS:** add a backend bucket (Cloud CDN on) + host rule for the domain to the shared
+load balancer, add the domain to its Google-managed certificate, and point the domain's A record at the
+load balancer IP.
 
 Caching is set in `hugo.toml` under `[deployment]`: fingerprinted CSS/images cache for a year,
 HTML for 5 minutes, so updates show up quickly.

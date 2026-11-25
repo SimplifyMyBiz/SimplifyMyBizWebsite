@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 # Scaffold a new customer site using the SMB theme.
-# Usage: scripts/new-site.sh <dir> "<Business Name>" <bucket-name>
+# Usage: scripts/new-site.sh <dir> "<Business Name>" <customer-slug>   (bucket = smb-site-<slug>)
 set -euo pipefail
-DIR="${1:?usage: new-site.sh <dir> \"<Business Name>\" <bucket-name>}"
+DIR="${1:?usage: new-site.sh <dir> \"<Business Name>\" <customer-slug>}"
 NAME="${2:?business name required}"
-BUCKET="${3:?bucket name required}"
+BUCKET="smb-site-${3:?customer slug required}"
 SRC="$(cd "$(dirname "$0")/.." && pwd)"
 [[ -e "$DIR" ]] && { echo "$DIR already exists"; exit 1; }
 
