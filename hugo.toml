@@ -38,7 +38,7 @@ disableKinds = ["taxonomy", "term", "rss"]
 [deployment]
   [[deployment.targets]]
     name = "production"
-    URL = "gs://smb-site-simplifymybiz"
+    URL = "gs://smb-smb-pubsite-temp"
 
   [[deployment.matchers]]
     pattern = "^.+\\.(css|js|svg|png|jpg|jpeg|webp|avif|woff2|ico)$"

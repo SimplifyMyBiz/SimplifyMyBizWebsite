@@ -2,6 +2,8 @@
 # Always run as the SMB gcloud profile (see README "Google Cloud access"),
 # regardless of what the current terminal is switched to.
 GCP_PROFILE ?= smb
+# TEMPORARY project until the Terraform-managed website project exists.
+export GCP_PROJECT ?= aqueous-abbey-515821-c3
 export CLOUDSDK_ACTIVE_CONFIG_NAME := $(GCP_PROFILE)
 export GOOGLE_APPLICATION_CREDENTIALS := $(HOME)/.config/gcp-profiles/adc/$(GCP_PROFILE).json
 
