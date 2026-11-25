@@ -13,8 +13,12 @@ export CLOUDSDK_ACTIVE_CONFIG_NAME="${CLOUDSDK_ACTIVE_CONFIG_NAME:-smb}"
 echo "Project: $PROJECT  Bucket: gs://$BUCKET  Region: $REGION  gcloud config: $CLOUDSDK_ACTIVE_CONFIG_NAME"
 read -r -p "Continue? [y/N] " ok; [[ "$ok" == "y" ]] || exit 1
 
-gcloud storage buckets create "gs://$BUCKET" --project="$PROJECT" --location="$REGION" \
-  --uniform-bucket-level-access --default-storage-class=STANDARD
+if gcloud storage buckets describe "gs://$BUCKET" --format="value(name)" >/dev/null 2>&1; then
+  echo "Bucket gs://$BUCKET already exists; updating its settings."
+else
+  gcloud storage buckets create "gs://$BUCKET" --project="$PROJECT" --location="$REGION" \
+    --uniform-bucket-level-access --default-storage-class=STANDARD
+fi
 gcloud storage buckets update "gs://$BUCKET" --web-main-page-suffix=index.html --web-error-page=404.html
 gcloud storage buckets update "gs://$BUCKET" --update-labels=managed-by=${BUCKET_MANAGED_BY:-manual},purpose=website,lifecycle=${BUCKET_LIFECYCLE:-temporary}
 gcloud storage buckets add-iam-policy-binding "gs://$BUCKET" --member=allUsers --role=roles/storage.objectViewer
