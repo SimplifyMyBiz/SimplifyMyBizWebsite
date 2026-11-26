@@ -7,58 +7,56 @@ blocks:
   - type: hero
     eyebrow: "Managed tech for small business"
     heading: "We handle the tech so you can focus on your business."
-    text: "Email, documents, AI, your website and your backups — set up correctly, watched over, and fixed by us. You get one team to call and zero tech headaches."
+    text: "Email, documents, AI, your website and your backups — set up correctly, watched over, and managed by us. You get one team to call and zero tech headaches."
     cta: { label: "Book a free 20-minute call", href: "#contact" }
-    secondary: { label: "See what we handle", href: "#services" }
     points:
-      - "Google Workspace experts"
-      - "Websites that can't be hacked"
-      - "Backed up daily"
+      - "Gmail & Workspace on your domain"
+      - "Websites on Google Cloud"
+      - "Locked Company Backups on Google Cloud Storage"
 
   - type: features
     id: services
     eyebrow: "What we handle"
-    heading: "Everything your business runs on, done right."
-    text: "Most small businesses are one forgotten password or one bad click away from a very bad week. We set things up the way IT pros would — then we keep them that way."
+    heading: "All the technology your business runs on, done right."
+    text: "Most small businesses are one forgotten or easily guessed password away from a very bad week. We set everything up securely, following best practices, so it works, stays backed up and is protected from attacks."
     items:
       - icon: workspace
-        title: "Google Workspace, set up right"
-        text: "Professional email at you@yourbusiness.com, shared calendars, Drive and Meet. We configure security, users and sharing correctly from day one."
-      - icon: admin
-        title: "Email & docs, managed for you"
-        text: "Your account is managed by our admin team. New hire? Lost phone? Someone leaving? One message to us and it's handled — access granted, revoked or recovered."
+        title: "Branded email, set up right"
+        text: "Gmail at you@yourbusiness.com for everyone on your team, with your existing email moved over and nothing lost. Your email only opens on your company's approved MacBooks, iPhones and Chromebooks, with spam filtering, phishing protection and 2-step verification on from day one."
+      - icon: docs
+        title: "Docs, Sheets & Slides, shared safely"
+        text: "All your company documents live in Google Docs, Sheets and Slides, easy to share with your team and locked away from anyone outside it. Every change is saved and everything is backed up daily, so nothing is ever lost."
       - icon: ai
         title: "AI that actually helps"
-        text: "We set up AI tools inside your workflow and teach your team the best practices: what to use it for, what to keep private, and how to get real time back."
+        text: "Let AI summarize your inbox, prioritize your calendar and draft your documents. We set it up inside the tools you already use and teach your team the best practices: what to use it for, what to keep private, and how to get real time back."
       - icon: shield
-        title: "Websites that can't be hacked"
-        text: "Fast, simple sites with no database, no login page and no plugins to exploit. Nothing to break into, nothing to patch, nothing to slow it down."
+        title: "Simple, fast websites"
+        text: "No servers, no databases. Your website is stored on Google Cloud in simple static web files and delivered to your customers in an instant, for less than a penny per 1,000 visitors. Nothing to update and nothing to break."
       - icon: vault
         title: "Daily backups to locked vaults"
-        text: "Every email, file and document is backed up every day to locked, write-protected vaults. Deleted by accident, or by ransomware? We bring it back."
+        text: "Every email, file and document is backed up every day to locked vaults. Deleted by accident, or locked by ransomware? We bring it back. Each backup is locked for 90 days, so no one can change or delete it, not even us."
       - icon: person
         title: "A real person to call"
-        text: "No ticket queues, no offshore call centers. You get a team that knows your business and answers when something's wrong."
+        text: "New hire? Lost phone? Someone leaving? One message to us and it's handled. No ticket queues, just a team that knows your business."
 
   - type: split
     id: websites
-    eyebrow: "Unhackable websites"
-    heading: "Your website shouldn't be a liability."
-    text: "Most small-business websites run on WordPress-style software: a database, a login page and a pile of plugins that need constant updates. Miss one and you get hacked. We build websites differently — as plain, pre-built pages served from Google Cloud. There's simply nothing there for an attacker to log into."
+    eyebrow: "Simple websites"
+    heading: "Back to how the web started."
+    text: "The first websites were just simple files: pages of text and pictures, sent to whoever asked for them. Over the years, business websites turned into complicated software, with databases, logins and plugins that all need constant updates. We build your website the original way, as simple files hosted on Google Cloud. It loads instantly, costs almost nothing to run, and with no server, there's nothing for rogue AI agents to break into."
     note: "This website is built exactly the same way."
     items:
-      - "No database to steal or corrupt"
-      - "No admin login to brute-force"
-      - "No plugins to fall out of date"
+      - "No servers to maintain"
+      - "No databases or plugins to update"
       - "Loads instantly, worldwide, on any phone"
-      - "Hosted on Google's infrastructure for pennies"
+      - "Hosted on Google Cloud for pennies per thousands of clicks"
 
   - type: split
     id: backups
     reverse: true
     eyebrow: "Locked vaults"
     heading: "When something goes wrong, nothing is lost."
-    text: "Google keeps your data running — but it won't save you from an employee who deletes the wrong folder, a hacked account or a ransomware attack. Our daily backups are stored in separate, locked vaults that even a compromised admin account can't erase."
+    text: "Google keeps your company data, documents and emails running — but it won't save you from an employee who deletes the wrong folder, a hacked account or a ransomware attack. Our daily backups are stored in separate, locked vaults that even a compromised admin account can't erase."
     items:
       - "Email, Drive, Docs, Sheets and Calendars"
       - "Backed up automatically, every day"
@@ -92,6 +90,14 @@ blocks:
         a: "It can be, when it's set up correctly. We configure the business versions of AI tools that don't train on your data, and teach your team what's okay to share and what isn't."
       - q: "What if I need to update my website?"
         a: "Send us the change and we'll make it. Because the site is so simple, updates are quick and there's no risk of breaking it."
+      - q: "Can I keep using my Microsoft-hosted email?"
+        a: "No. It's insecure and it's terrible. We move you to Google Workspace and bring every message with you."
+      - q: "Can I use a Microsoft Windows computer to access my email?"
+        a: "No, and you shouldn't want to. Our optional known-device restrictions put a stop to that dangerous habit for good."
+      - q: "Can I use my Android phone for anything business?"
+        a: "No. In your personal life, do what you want with an insecure and terrible mobile operating system. For business, it's an iPhone."
+      - q: "Can I keep the existing website we spent lots of money on?"
+        a: "Yes. Just know we won't be responsible for any of it."
 
   - type: cta
     id: contact
