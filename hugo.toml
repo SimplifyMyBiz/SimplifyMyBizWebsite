@@ -16,7 +16,7 @@ disableKinds = ["taxonomy", "term", "rss"]
   # Brand colors (any CSS color). The theme derives everything else.
   brandColor = "#e4ebfb"
   # Google Fonts family spec (empty = system font). Must match --font in the theme CSS.
-  googleFont = "Nunito:wght@400;600;700;800;900"
+  googleFont = "Nunito+Sans:wght@400;600;700;800"
   accentColor = "#4f6bff"
 
 [menus]

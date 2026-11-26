@@ -12,7 +12,7 @@
   --radius: 24px;
   --radius-sm: 16px;
   --shadow: 0 8px 28px rgba(29, 36, 51, .07);
-  --font: "Nunito", ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font: "Nunito Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color-scheme: light;
 }
 
@@ -20,7 +20,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 80px; -webkit-text-size-adjust: 100%; }
 body { margin: 0; font-family: var(--font); font-size: 17px; line-height: 1.6; color: var(--ink); background: var(--bg); -webkit-font-smoothing: antialiased; }
 h1, h2, h3 { line-height: 1.15; letter-spacing: -.01em; margin: 0 0 .5em; text-wrap: balance; }
-h1 { font-size: clamp(2.2rem, 5.5vw, 3.75rem); font-weight: 900; }
+h1 { font-size: clamp(2.2rem, 5.5vw, 3.75rem); font-weight: 800; }
 h2 { font-size: clamp(1.75rem, 3.6vw, 2.5rem); font-weight: 800; }
 h3 { font-size: 1.2rem; font-weight: 800; }
 p { margin: 0 0 1em; }
