@@ -1,0 +1,6 @@
+# TEMPORARY (2026-11-25): lets the temp website project grant allUsers read on its bucket.
+# Overrides the org's domain-restricted-sharing policy on project aqueous-abbey-515821-c3 ONLY.
+# Replace with the Terraform-managed website project in the Foundation Layers repo, then delete.
+constraint: constraints/iam.allowedPolicyMemberDomains
+listPolicy:
+  allValues: ALLOW

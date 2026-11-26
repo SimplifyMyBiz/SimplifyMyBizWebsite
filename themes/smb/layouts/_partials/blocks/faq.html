@@ -1,0 +1,10 @@
+<section class="section tinted" {{ with .id }}id="{{ . }}"{{ end }}>
+  <div class="wrap narrow">
+    <div class="section-head">{{ partial "section-head.html" . }}</div>
+    <div class="faq">
+      {{ range .items }}
+      <details><summary>{{ .q }}</summary><p>{{ .a }}</p></details>
+      {{ end }}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+<section class="section split-section{{ if .reverse }} tinted{{ end }}" {{ with .id }}id="{{ . }}"{{ end }}>
+  <div class="wrap split{{ if .reverse }} reverse{{ end }}">
+    <div>
+      {{ partial "section-head.html" . }}
+      {{ with .note }}<p class="note">{{ partial "icon.html" "shield" }}{{ . }}</p>{{ end }}
+    </div>
+    <ul class="checklist">
+      {{ range .items }}<li>{{ partial "icon.html" "check" }}<span>{{ . }}</span></li>{{ end }}
+    </ul>
+  </div>
+</section>
