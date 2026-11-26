@@ -10,7 +10,7 @@ disableKinds = ["taxonomy", "term", "rss"]
   tagline = "Tech handled. Business focused."
   # Contact details shown in the header CTA, contact section and footer.
   email = "hello@simplifymy.biz"
-  phone = "650.260.4656"
+  phone = ""  # leave empty to hide; we lead with email
   bookingURL = ""        # e.g. a Google Calendar appointment page; falls back to mailto
   formEndpoint = ""      # Cloud Run URL for the contact form; empty = mailto link only
   # Brand colors (any CSS color). The theme derives everything else.

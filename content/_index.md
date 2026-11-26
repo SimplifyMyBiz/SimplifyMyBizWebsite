@@ -7,11 +7,11 @@ blocks:
   - type: hero
     eyebrow: "Managed tech for small business"
     heading: "We handle the tech so you can focus on your business."
-    text: "Email, documents, AI, your website and your backups — set up correctly, watched over, and managed by us. You get one team to call and zero tech headaches."
-    cta: { label: "Book a free 20-minute call", href: "#contact" }
+    text: "Email, documents, AI assistants, your website and your backups — set up correctly, watched over, and managed by us. You get one team to call and zero tech headaches."
+    cta: { label: "Talk to us", href: "#contact" }
     points:
-      - "Gmail & Workspace on your domain"
-      - "Websites on Google Cloud"
+      - "Gmail & Docs on your domain"
+      - "Website on Google Cloud"
       - "Locked Company Backups on Google Cloud Storage"
 
   - type: features
@@ -69,7 +69,7 @@ blocks:
     heading: "Three steps to never thinking about tech again."
     items:
       - title: "Talk"
-        text: "A free call to learn how your business works today — your team, your tools and what's slowing you down."
+        text: "Email us about how your business works today — your team, your tools and what's slowing you down."
       - title: "Set up"
         text: "We move you onto Google Workspace, lock down security, launch your website, configure AI and switch on backups. Your team gets a hands-on walkthrough."
       - title: "We manage it"
@@ -93,7 +93,7 @@ blocks:
       - q: "Can I keep using my Microsoft-hosted email?"
         a: "No. It's insecure and it's terrible. We move you to Google Workspace and bring every message with you."
       - q: "Can I use a Microsoft Windows computer to access my email?"
-        a: "No, and you shouldn't want to. Our optional known-device restrictions put a stop to that dangerous habit for good."
+        a: "No, and you shouldn't want to. Our known-device restrictions put a stop to that dangerous habit for good."
       - q: "Can I use my Android phone for anything business?"
         a: "No. In your personal life, do what you want with an insecure and terrible mobile operating system. For business, it's an iPhone."
       - q: "Can I keep the existing website we spent lots of money on?"
