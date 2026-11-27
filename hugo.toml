@@ -22,15 +22,15 @@ disableKinds = ["taxonomy", "term", "rss"]
 [menus]
   [[menus.main]]
     name = "Services"
-    pageRef = "/#services"
+    url = "#services"
     weight = 10
   [[menus.main]]
     name = "How it works"
-    pageRef = "/#how"
+    url = "#how"
     weight = 20
   [[menus.main]]
     name = "FAQ"
-    pageRef = "/#faq"
+    url = "#faq"
     weight = 30
 
 [minify]

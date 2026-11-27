@@ -1,11 +1,13 @@
+{{- /* On the homepage, links are plain #anchors; elsewhere they go back to the homepage first. */ -}}
+{{- $home := cond .IsHome "" site.Home.RelPermalink -}}
 <header class="site-header">
   <div class="wrap bar">
-    <a class="logo" href="{{ "/" | relURL }}" aria-label="{{ site.Title }} home">
+    <a class="logo" href="{{ cond .IsHome "#" site.Home.RelPermalink }}" aria-label="{{ site.Title }} home">
       {{ partial "logo.html" . }}
     </a>
     <nav class="nav" aria-label="Main">
-      {{ range site.Menus.main }}<a href="{{ .URL }}">{{ .Name }}</a>{{ end }}
+      {{ range site.Menus.main }}<a href="{{ $home }}{{ .URL }}">{{ .Name }}</a>{{ end }}
     </nav>
-    <a class="btn btn-sm" href="#contact">Talk to us</a>
+    <a class="btn btn-sm" href="{{ $home }}#contact">Talk to us</a>
   </div>
 </header>

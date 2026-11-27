@@ -1,7 +1,7 @@
 <footer class="site-footer">
   <div class="wrap foot">
     <div>
-      <a class="logo" href="{{ "/" | relURL }}">{{ partial "logo.html" . }}</a>
+      <a class="logo" href="{{ cond .IsHome "#" site.Home.RelPermalink }}">{{ partial "logo.html" . }}</a>
       <p class="muted">{{ site.Params.tagline }}</p>
     </div>
     <div class="foot-links">
