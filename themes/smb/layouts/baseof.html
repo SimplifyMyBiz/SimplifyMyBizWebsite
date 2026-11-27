@@ -6,7 +6,9 @@
   <title>{{ if .IsHome }}{{ .Title | default site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
   {{- $desc := .Description | default site.Params.description }}
   {{- $title := .Title | default site.Title }}
-  {{- $ogImage := "images/og.png" | absURL }}
+  {{- /* Optional per-site images; tags are left out when the files don't exist. */}}
+  {{- $ogImage := cond (fileExists "static/images/og.png") ("images/og.png" | absURL) "" }}
+  {{- $touchIcon := cond (fileExists "static/apple-touch-icon.png") ("apple-touch-icon.png" | relURL) "" }}
   <meta name="description" content="{{ $desc }}">
   <link rel="canonical" href="{{ .Permalink }}">
 
@@ -16,15 +18,19 @@
   <meta property="og:title" content="{{ $title }}">
   <meta property="og:description" content="{{ $desc }}">
   <meta property="og:url" content="{{ .Permalink }}">
-  <meta property="og:image" content="{{ $ogImage }}">
+  {{- with $ogImage }}
+  <meta property="og:image" content="{{ . }}">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="{{ site.Title }}: {{ site.Params.tagline }}">
   <meta name="twitter:card" content="summary_large_image">
+  {{- end }}
 
   <meta name="theme-color" content="{{ site.Params.brandColor | default "#0f2a44" }}">
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
-  <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+  {{- with $touchIcon }}
+  <link rel="apple-touch-icon" href="{{ . }}">
+  {{- end }}
 
   {{- /* Self-hosted font (no third-party requests). One variable file covers weights 400–800. */}}
   {{- $font := "fonts/nunito-sans-latin.woff2" | relURL }}
@@ -41,10 +47,10 @@
       "@type" "Organization"
       "name" site.Title
       "url" site.Home.Permalink
-      "logo" ("apple-touch-icon.png" | absURL)
       "description" $desc
       "email" site.Params.email
   }}
+  {{- with $touchIcon }}{{ $org = merge $org (dict "logo" ("apple-touch-icon.png" | absURL)) }}{{ end }}
   <script type="application/ld+json">{{ $org | jsonify | safeJS }}</script>
   {{- end }}
 </head>

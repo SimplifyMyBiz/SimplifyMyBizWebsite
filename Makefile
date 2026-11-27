@@ -1,8 +1,8 @@
 # SimplifyMyBiz static site — same workflow for every customer site.
 # Hosting: Cloudflare Workers static assets (see wrangler.jsonc).
 
-# Public address the site is built for.
-SITE_URL ?= https://simplifymy.biz/
+# Public address the site is built for (baseURL in hugo.toml).
+SITE_URL ?= $(shell sed -n 's/^baseURL = "\(.*\)"/\1/p' hugo.toml)
 # Cloudflare's CLI, pinned so every site deploys the same way.
 WRANGLER ?= npx --yes wrangler@4.169.0
 
