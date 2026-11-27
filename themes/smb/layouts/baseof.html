@@ -4,23 +4,55 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ if .IsHome }}{{ .Title | default site.Title }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
-  {{ $desc := .Description | default site.Params.description }}
+  {{- $desc := .Description | default site.Params.description }}
+  {{- $title := .Title | default site.Title }}
+  {{- /* Optional per-site images; tags are left out when the files don't exist. */}}
+  {{- $ogImage := cond (fileExists "static/images/og.png") ("images/og.png" | absURL) "" }}
+  {{- $touchIcon := cond (fileExists "static/apple-touch-icon.png") ("apple-touch-icon.png" | relURL) "" }}
   <meta name="description" content="{{ $desc }}">
   <link rel="canonical" href="{{ .Permalink }}">
+
+  {{- /* Link previews (iMessage, Slack, email, social). */}}
   <meta property="og:type" content="website">
-  <meta property="og:title" content="{{ .Title | default site.Title }}">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:title" content="{{ $title }}">
   <meta property="og:description" content="{{ $desc }}">
   <meta property="og:url" content="{{ .Permalink }}">
+  {{- with $ogImage }}
+  <meta property="og:image" content="{{ . }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{ site.Title }}: {{ site.Params.tagline }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {{- end }}
+
   <meta name="theme-color" content="{{ site.Params.brandColor | default "#0f2a44" }}">
   <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
-  {{ with site.Params.googleFont }}
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family={{ . }}&display=swap">
-  {{ end }}
-  {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
-  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
-  <style>:root{--brand:{{ site.Params.brandColor | default "#0f2a44" | safeCSS }};--accent:{{ site.Params.accentColor | default "#14b8a6" | safeCSS }}}</style>
+  {{- with $touchIcon }}
+  <link rel="apple-touch-icon" href="{{ . }}">
+  {{- end }}
+
+  {{- /* Self-hosted font (no third-party requests). One variable file covers weights 400–800. */}}
+  {{- $font := "fonts/nunito-sans-latin.woff2" | relURL }}
+  <link rel="preload" href="{{ $font }}" as="font" type="font/woff2" crossorigin>
+
+  {{- /* CSS is inlined: one less request before the page can render. */}}
+  {{- $css := resources.Get "css/main.css" | minify }}
+  <style>@font-face{font-family:"Nunito Sans";font-style:normal;font-weight:400 800;font-display:swap;src:url({{ $font | safeCSS }}) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}:root{--brand:{{ site.Params.brandColor | default "#0f2a44" | safeCSS }};--accent:{{ site.Params.accentColor | default "#14b8a6" | safeCSS }}}{{ $css.Content | safeCSS }}</style>
+
+  {{- if .IsHome }}
+  {{- /* Business details for search engines. */}}
+  {{- $org := dict
+      "@context" "https://schema.org"
+      "@type" "Organization"
+      "name" site.Title
+      "url" site.Home.Permalink
+      "description" $desc
+      "email" site.Params.email
+  }}
+  {{- with $touchIcon }}{{ $org = merge $org (dict "logo" ("apple-touch-icon.png" | absURL)) }}{{ end }}
+  <script type="application/ld+json">{{ $org | jsonify | safeJS }}</script>
+  {{- end }}
 </head>
 <body>
   {{ partial "header.html" . }}

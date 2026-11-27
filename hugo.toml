@@ -3,10 +3,11 @@ locale = "en-US"
 title = "SimplifyMyBiz"
 theme = "smb"
 enableRobotsTXT = true
+disableHugoGeneratorInject = true
 disableKinds = ["taxonomy", "term", "rss"]
 
 [params]
-  description = "SimplifyMyBiz handles the tech so you can focus on your business. Google Workspace, email, AI, unhackable websites and daily backups — set up right and managed for you."
+  description = "SimplifyMyBiz handles the tech so you can focus on your business. Google Workspace, email, AI, fast websites on Cloudflare and locked daily backups — set up right, managed for you and always owned by you."
   tagline = "Tech handled. Business focused."
   # Contact details shown in the header CTA, contact section and footer.
   email = "hello@simplifymy.biz"
@@ -15,39 +16,22 @@ disableKinds = ["taxonomy", "term", "rss"]
   formEndpoint = ""      # Cloud Run URL for the contact form; empty = mailto link only
   # Brand colors (any CSS color). The theme derives everything else.
   brandColor = "#e4ebfb"
-  # Google Fonts family spec (empty = system font). Must match --font in the theme CSS.
-  googleFont = "Nunito+Sans:wght@400;600;700;800"
-  accentColor = "#4f6bff"
+  accentColor = "#3051ff"
 
 [menus]
   [[menus.main]]
     name = "Services"
-    pageRef = "/#services"
+    url = "#services"
     weight = 10
   [[menus.main]]
     name = "How it works"
-    pageRef = "/#how"
+    url = "#how"
     weight = 20
   [[menus.main]]
     name = "FAQ"
-    pageRef = "/#faq"
+    url = "#faq"
     weight = 30
 
 [minify]
   minifyOutput = true
 
-# ---- Deploy: `hugo deploy` (see README) ----
-[deployment]
-  [[deployment.targets]]
-    name = "production"
-    URL = "gs://smb-smb-pubsite-temp"
-
-  [[deployment.matchers]]
-    pattern = "^.+\\.(css|js|svg|png|jpg|jpeg|webp|avif|woff2|ico)$"
-    cacheControl = "public, max-age=31536000, immutable"
-    gzip = true
-
-  [[deployment.matchers]]
-    pattern = "^.+\\.(html|xml|json|txt)$"
-    cacheControl = "public, max-age=300"
-    gzip = true

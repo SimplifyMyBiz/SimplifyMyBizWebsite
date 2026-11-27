@@ -1,7 +1,7 @@
 <footer class="site-footer">
   <div class="wrap foot">
     <div>
-      <a class="logo" href="{{ "/" | relURL }}">{{ partial "logo.html" . }}</a>
+      <a class="logo" href="{{ cond .IsHome "#" site.Home.RelPermalink }}">{{ partial "logo.html" . }}</a>
       <p class="muted">{{ site.Params.tagline }}</p>
     </div>
     <div class="foot-links">
@@ -9,5 +9,5 @@
       {{ with site.Params.phone }}<a href="tel:{{ replaceRE `[^0-9+]` "" . }}">{{ . }}</a>{{ end }}
     </div>
   </div>
-  <div class="wrap fine muted">© {{ now.Year }} {{ site.Title }} · Simple static website on Google Cloud. No servers, no databases, nothing to break.</div>
+  <div class="wrap fine muted">© {{ now.Year }} {{ site.Title }} · Simple static website on Cloudflare. No servers, no databases, nothing to break.</div>
 </footer>
