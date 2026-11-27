@@ -6,7 +6,7 @@ enableRobotsTXT = true
 disableKinds = ["taxonomy", "term", "rss"]
 
 [params]
-  description = "SimplifyMyBiz handles the tech so you can focus on your business. Google Workspace, email, AI, unhackable websites and daily backups — set up right and managed for you."
+  description = "SimplifyMyBiz handles the tech so you can focus on your business. Google Workspace, email, AI, fast websites on Cloudflare and locked daily backups — set up right, managed for you and always owned by you."
   tagline = "Tech handled. Business focused."
   # Contact details shown in the header CTA, contact section and footer.
   email = "hello@simplifymy.biz"

@@ -7,18 +7,18 @@ blocks:
   - type: hero
     eyebrow: "Managed tech for small business"
     heading: "We handle the tech so you can focus on your business."
-    text: "Email, documents, AI assistants, your website and your backups — set up correctly, watched over, and managed by us. You get one team to call and zero tech headaches."
+    text: "Email, documents, AI assistants, your website and your backups — set up correctly, watched over, and managed by us, and always owned by you. You get one team to call and zero tech headaches."
     cta: { label: "Talk to us", href: "#contact" }
     points:
       - "Gmail & Docs on your domain"
-      - "Website on Google Cloud"
+      - "Website on Cloudflare"
       - "Locked Company Backups on Google Cloud Storage"
 
   - type: features
     id: services
     eyebrow: "What we handle"
     heading: "All the technology your business runs on, done right."
-    text: "Most small businesses are one forgotten or easily guessed password away from a very bad week. We set everything up securely, following best practices, so it works, stays backed up and is protected from attacks."
+    text: "Most small businesses are one forgotten or easily guessed password away from a very bad week. We set everything up securely on Google and Cloudflare, following best practices, so it works, stays backed up and is protected from attacks."
     items:
       - icon: workspace
         title: "Branded email, set up right"
@@ -31,7 +31,7 @@ blocks:
         text: "Let AI summarize your inbox, prioritize your calendar and draft your documents. We set it up inside the tools you already use and teach your team the best practices: what to use it for, what to keep private, and how to get real time back."
       - icon: shield
         title: "Simple, fast websites"
-        text: "No servers, no databases. Your website is stored on Google Cloud in simple static web files and delivered to your customers in an instant, for less than a penny per 1,000 visitors. Nothing to update and nothing to break."
+        text: "No servers, no databases. Your website is simple static files, delivered from Cloudflare's global network close to every visitor, so it loads in an instant. Hosting and HTTPS are free, with nothing to update and nothing to break."
       - icon: vault
         title: "Daily backups to locked vaults"
         text: "Every email, file and document is backed up every day to locked vaults. Deleted by accident, or locked by ransomware? We bring it back. Each backup is locked for 90 days, so no one can change or delete it, not even us."
@@ -43,13 +43,13 @@ blocks:
     id: websites
     eyebrow: "Simple websites"
     heading: "Back to how the web started."
-    text: "The first websites were just simple files: pages of text and pictures, sent to whoever asked for them. Over the years, business websites turned into complicated software, with databases, logins and plugins that all need constant updates. We build your website the original way, as simple files hosted on Google Cloud. It loads instantly, costs almost nothing to run, and with no server, there's nothing for rogue AI agents to break into."
+    text: "The first websites were just simple files: pages of text and pictures, sent to whoever asked for them. Over the years, business websites turned into complicated software, with databases, logins and plugins that all need constant updates. We build your website the original way, as simple files delivered by Cloudflare, the same network that protects many of the world's biggest websites. It loads instantly, costs nothing to host, and with no server, there's nothing for rogue AI agents to break into."
     note: "This website is built exactly the same way."
     items:
       - "No servers to maintain"
       - "No databases or plugins to update"
       - "Loads instantly, worldwide, on any phone"
-      - "Hosted on Google Cloud for pennies per thousands of clicks"
+      - "Free hosting and HTTPS on Cloudflare's global network"
 
   - type: split
     id: backups
@@ -75,6 +75,19 @@ blocks:
       - title: "We manage it"
         text: "From then on, we're your IT department. Updates, new hires, questions, problems — just message us."
 
+  - type: split
+    id: ownership
+    reverse: true
+    eyebrow: "No lock-in"
+    heading: "You own everything. We're just here to help."
+    text: "Your Google Workspace, your domain and your website are all in your business's name, and you pay Google and Cloudflare directly. We're invited in as administrators to set everything up and keep it running. If you ever want to leave, remove our access and keep everything. No exit fees, no hostage data, no hard feelings."
+    note: "Leave any time. Keep everything."
+    items:
+      - "Google Workspace in your name, billed to you by Google"
+      - "Your domain registered to you, at cost, on Cloudflare"
+      - "Your website and its files in your own Cloudflare account"
+      - "Remove our access any time and keep everything"
+
   - type: faq
     id: faq
     eyebrow: "Questions"
@@ -83,7 +96,7 @@ blocks:
       - q: "We already use Gmail / Outlook / something else. Can you move us?"
         a: "Yes. We migrate your existing email, contacts, calendars and files into Google Workspace with no lost messages and minimal downtime."
       - q: "Do I still own my data and my domain?"
-        a: "Always. Your domain, your Workspace account and your data belong to your business. We manage them for you through our admin account, and you can take them back at any time."
+        a: "Always. You sign up for Google Workspace and Cloudflare yourself, in your business's name, and pay them directly. We're simply invited in as administrators. If you ever want to leave, remove our access and you keep everything."
       - q: "Why do you manage things through your admin account?"
         a: "It means the keys to your business don't live on a sticky note or in one employee's head. Security settings stay correct, departing employees lose access immediately, and there's always someone who can recover an account."
       - q: "Is AI safe to use with my business data?"
