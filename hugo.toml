@@ -36,18 +36,3 @@ disableKinds = ["taxonomy", "term", "rss"]
 [minify]
   minifyOutput = true
 
-# ---- Deploy: `hugo deploy` (see README) ----
-[deployment]
-  [[deployment.targets]]
-    name = "production"
-    URL = "gs://smb-smb-pubsite-temp"
-
-  [[deployment.matchers]]
-    pattern = "^.+\\.(css|js|svg|png|jpg|jpeg|webp|avif|woff2|ico)$"
-    cacheControl = "public, max-age=31536000, immutable"
-    gzip = true
-
-  [[deployment.matchers]]
-    pattern = "^.+\\.(html|xml|json|txt)$"
-    cacheControl = "public, max-age=300"
-    gzip = true

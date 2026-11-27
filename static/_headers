@@ -1,0 +1,11 @@
+# Cloudflare response headers (Workers static assets reads this file from the build output).
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000
+
+# Fingerprinted CSS never changes at the same URL, so cache it for a year.
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
