@@ -1,6 +1,29 @@
 {
   "version": "0.0.1",
   "configurations": [
-    { "name": "hugo", "runtimeExecutable": "hugo", "runtimeArgs": ["server", "--port", "1313", "--disableFastRender", "--renderToMemory"], "port": 1313 }
+    {
+      "name": "hugo",
+      "runtimeExecutable": "hugo",
+      "runtimeArgs": [
+        "server",
+        "--port",
+        "1313",
+        "--disableFastRender",
+        "--renderToMemory"
+      ],
+      "port": 1313
+    },
+    {
+      "name": "cloudflare",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "--yes",
+        "wrangler@4.169.0",
+        "dev",
+        "--port",
+        "8787"
+      ],
+      "port": 8787
+    }
   ]
 }

@@ -3,6 +3,7 @@ locale = "en-US"
 title = "SimplifyMyBiz"
 theme = "smb"
 enableRobotsTXT = true
+disableHugoGeneratorInject = true
 disableKinds = ["taxonomy", "term", "rss"]
 
 [params]
@@ -15,9 +16,7 @@ disableKinds = ["taxonomy", "term", "rss"]
   formEndpoint = ""      # Cloud Run URL for the contact form; empty = mailto link only
   # Brand colors (any CSS color). The theme derives everything else.
   brandColor = "#e4ebfb"
-  # Google Fonts family spec (empty = system font). Must match --font in the theme CSS.
-  googleFont = "Nunito+Sans:wght@400;600;700;800"
-  accentColor = "#4f6bff"
+  accentColor = "#3051ff"
 
 [menus]
   [[menus.main]]
